@@ -1,0 +1,205 @@
+/* @import url(../reset.css);
+@import url(../stlye.css); */
+
+
+body{
+    font-family: "돋움", Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #979797;
+
+ }
+
+
+ /* --------------------------------------------------------------------------------------- */
+
+ .header{
+    /* background: red; */
+    height : 71px;
+ }
+
+    .header>.container{
+        /* 헤더의 컨테이너 left,top 기준 좌표 바꾸기. */
+        position: relative;
+        
+    }
+
+    .header>.container>.logo{
+        display: inline-block;
+        position: absolute;
+        left:0px;
+        top:23px;
+    }
+    .main-menu{
+        display: inline-block;
+        font-family: "맑은 고딕","고딕",Arial;
+        font-size: 15px;
+        font-weight: bold;
+        color : #000000;
+        
+        /* 
+            기본 포지션 방식이 얘는 satic 단 블록이라면
+            left와 top는 position 방식이 absolute, relative, fixed일 때만 적용됨.
+            기본 기준 left,top 좌표는 브라우저의 왼쪽 위임.
+        */
+        position: absolute;
+        top:27px;
+        left:200px;
+        
+       
+        
+    }
+        .main-menu>ul{
+            display: flex;
+
+        }
+
+        /* 
+        a 태그 관련 슈도 클래스
+        hover - > 마우스를 갖다 댔을 때
+        activited - > 클릭 했을 때
+        visited - > 이미 들어간적이 있을 때
+        link
+        
+        */
+            .main-menu>ul a:hover{
+                color:#ff6a00;
+                /*  언더바 지우기 */
+                text-decoration: none;
+            }
+
+            .main-menu>ul>li{
+                /* 맑은 고딕이 없을시 고딕, 고딕이 없을시 Arail */
+                
+                padding-left: 24px;
+                background: url("../image/bg-main-menu-vsp.png") 12px center no-repeat;
+                
+            }
+
+            .main-menu>ul>li:nth-child(1){
+                padding-left: initial;
+                background: none;
+            }
+
+    .lecture-form{
+        display: inline-block;
+        border : 5px solid #8CBA34;
+        position: absolute;
+        top:21px;
+        left:468px;
+        
+    }
+
+    /*  강좌 검색 가운데로 오게하는 방법
+        1. box를 가운데로
+        2. text를 가운데로 - > 1줄일 경우만 가능.
+
+    */
+    .lecture-form>form{
+        display : flex;
+    }
+
+    .lecture-form>form>label{
+        font-family: "돋움";
+        font-size :11px;
+        font-weight: bold;
+        color : #979797;
+        /* 
+            box가 가운데로 오게 하는 방법 - > 더 바람직함.
+            .lecuter-form>form - > flex;
+            form안의 label의 align-self:center;
+        */
+        align-self: center;
+
+        /* 
+            텍스트를 위로 올려서 가운데로 맞춤.
+        */
+        --line-height: 25px;
+
+        padding : 0px 5px;
+    }
+
+    .lecture-form>form>input[type="text"]{
+        border : none;
+        /* outline : input의 focus되었을 때의 속성 */
+        outline : none;
+    }
+
+    .lecture-form .find-button{
+        background : url("../image/btn-zoom.png") no-repeat center;
+        width: 31px;
+        height:25px;
+        border-left: 1px solid #8cba34;
+
+    }
+
+    .shortcut-menu{
+        display: inline-block;
+
+        /* 중간에 배치하게 하기. */
+        vertical-align: middle;
+
+        position: absolute;
+        right:0px;
+        top:40px;
+    }
+        .shortcut-menu-list{
+            display: flex;
+            
+            /* font의 크기때문에 높이가 정해짐 */
+           font-size: 0px;
+        }
+
+        /* .shortcut-menu-list>li:first-child>a */
+        .shortcut-menu-list .mypage-button{
+            background : url("../image/txt-mypage.png") no-repeat center;
+            width : 72px;
+            height : 17px;
+            /* inline은 너비 높이를 지정못함. - > block은 줄 단위의 크기를 가짐 - > 인라인 + 블럭 - > inline-block 사용 */
+            --display: inline-block;
+            --width : 72px;
+            --height : 17px;
+
+            /* 
+                text-indent - > inline에서는 안먹힘. 들여쓰기 - > block으로 바꿔줘야함. 
+                +값을 주면 이미지가 커질 경우 보일 수 있음 - > 왠만하면 -로
+            */
+            --text-indent: 55550px;
+            --overflow: hidden;
+
+            --text-indent: -999px;
+        }
+
+        /* .shortcut-menu-list>li:first-child+li>a */
+        .shortcut-menu-list .customer-button{
+            background : url("../image/txt-customer.png") no-repeat center;
+            width : 72px;
+            height : 17px;
+            margin-left: 1px;
+            
+        }
+    .member-menu{
+        display: inline-block;
+        font-family: "맑은 고딕","고딕",Arial;
+        font-size: 10px;
+        font-weight: bold;
+        color : #979797;
+
+        position: absolute;
+        right:0px;
+        top:20px;
+
+    }
+        .member-menu>ul{
+            display : flex;
+        }
+
+            .member-menu>ul>li{
+                padding-left: 9px;
+                background: url("../image/bg-member-menu-sp.png") 4.5px center no-repeat;
+               
+            }
+
+            .member-menu>ul>li:first-child{
+                padding-left: initial;
+                background : none;
+            }
